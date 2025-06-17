@@ -8,7 +8,7 @@ import AuthPage from './AuthPage';
 // Interfaces
 interface Ship { id: string; energy_cores: number; chrono_particles: number; engine_level: number; reactor_level: number; fabricator_level: number; scanner_level: number; }
 interface GridData { grid_distribution: { [key: string]: { relic_id: string } } }
-interface Fragment { quantity: number; relics: { name: string } | null; }
+interface Fragment { quantity: number; relics: { name: string }[] | null; }
 
 function App() {
   const [session, setSession] = useState<any>(null);

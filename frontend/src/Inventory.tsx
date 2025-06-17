@@ -1,7 +1,9 @@
 // src/Inventory.tsx
+
+// On met à jour l'interface ici aussi pour qu'elle corresponde
 interface Fragment {
   quantity: number;
-  relics: { name: string } | null;
+  relics: { name: string }[] | null;
 }
 
 interface InventoryProps {
@@ -24,7 +26,8 @@ const Inventory = ({ fragments }: InventoryProps) => {
       <div className="space-y-1 text-left bg-gray-800 p-2 rounded">
         {fragments.map((fragment, index) => (
           <p key={index} className="text-sm">
-            🧩 {fragment.relics?.name}: 
+            {/* La seule modification est ici : on prend le premier élément de la liste */}
+            🧩 {fragment.relics?.[0]?.name || 'Relique Inconnue'}: 
             <span className="font-bold text-white float-right">{fragment.quantity}x</span>
           </p>
         ))}
