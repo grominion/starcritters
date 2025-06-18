@@ -68,7 +68,7 @@ CREATE TABLE public.grid_discoveries (
     id bigserial,
     grid_id bigint NOT NULL REFERENCES public.daily_grids(id) ON DELETE CASCADE,
     player_id uuid NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
-    relic_id uuid NOT NULL REFERENCES public.relics(id) ON DELETE CASCADE,
+    relic_id uuid REFERENCES public.relics(id) ON DELETE CASCADE,
     coord_x integer NOT NULL,
     coord_y integer NOT NULL,
     discovered_at timestamp with time zone NOT NULL DEFAULT now(),
